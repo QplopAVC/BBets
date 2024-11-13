@@ -47,11 +47,25 @@ for (i in 1:1000) {
 }
 smymin <- sort(mymin)
 
+smyminf <- smymin[25:975]
+
+
 low=smymin[25]
 high=smymin[975]
 
+mean(smymin)
+
 cat("Low value (25th percentile):", low, "\n")
 cat("High value (975th percentile):", high, "\n")
+
+hist(smyminf, 
+     main="Histogram of Sorted Values", 
+     xlab="Values", 
+     ylab="Frequency", 
+     col="skyblue", 
+     border="blue", 
+     breaks=100)
+
 ```
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
@@ -63,6 +77,35 @@ cat("High value (975th percentile):", high, "\n")
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
 
+```{r}
+mymin1=numeric(1000)
+for (i in 1:1000) {
+    mymin1[i]=BrLw(odds=4.40)
+}
+smymin1 <- sort(mymin1)
+
+smyminf1 <- smymin1[25:975]
+
+
+low1=smymin1[25]
+high1=smymin1[975]
+
+mean(smymin1)
+
+cat("Low value (25th percentile):", low1, "\n")
+cat("High value (975th percentile):", high1, "\n")
+
+hist(smyminf1, 
+     main="Brownlow Fair Odds = 4.40-4.41", 
+     xlab="Values", 
+     ylab="Frequency", 
+     col="skyblue", 
+     border="blue", 
+     breaks=100)
+
+```
+
+For my strategy we guessed the amount of odds until the profit reached 0. The odds are around 4.40-4.41 where both yield similar results.
 
 
 
